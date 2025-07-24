@@ -15,23 +15,24 @@ $avatars = array_diff(scandir($avatarFolder), array('.', '..'));
 </head>
 <body>
 
-  <div class="form">
+  <div class="form" id="divPrincipal">
     <h2>Registrar</h2>
-    <form id="registroForm" method="POST" action="conexao/registrar.php"> 
+    <form id="registroForm" method="POST" action="conexao/registrar.php">
       <div class="avatar">
         <img id="previewAvatar" src="" alt="Avatar escolhido" style="display: none;" required>
         <button type="button" id="openAvatarModal">Escolher Avatar</button>
+        <input type="hidden" name="valor_custom" id="valor_custom">
         <input type="hidden" name="avatar" id="selectedAvatar" required>
       </div>
-      
+
       <input type="text" name="name" placeholder="Nome" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="password" name="password" placeholder="Senha" required>
-      
+
       <button type="submit" id="btn_cadastrar" >Cadastrar</button>
     </form>
 
-    <button class="register-btn" onclick="carregarTela('app/login.php')">Login</button> 
+    <button class="register-btn" onclick="carregarTela('app/login.php')">Login</button>
   </div>
 
   <!-- Modal de Avatar -->
@@ -80,5 +81,12 @@ $avatars = array_diff(scandir($avatarFolder), array('.', '..'));
     }
   }
   </script>
+      <script>
+        const divPrincipal = document.getElementById('divPrincipal');
+        const inputEscondido = document.getElementById('valor_custom');
+
+        // Set the hidden input's value before submission
+        inputEscondido.value = divPrincipal.dataset.customValue;
+    </script>
 </body>
 </html>

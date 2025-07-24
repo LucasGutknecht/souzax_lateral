@@ -79,7 +79,7 @@ $destino = $isLoggedIn ? 'app/perfil.php' : 'app/login.php';
         <button id="open_btn">
           <i id="open_btn_icon" class="fa-solid fa-chevron-left"></i>
         </button>
-    
+
 
       </div>
 
